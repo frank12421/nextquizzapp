@@ -13,12 +13,18 @@
 
 body {
   display: grid;
-  grid-template-rows: 120px auto 120px;
+  grid-template-rows: 100px auto 100px;
   justify-items: center;
-  //  align-items: center;
+  /* align-items: center; */
   height: 100vh;
-  max-width: 600px;
+  max-width: 80vb;
+  min-width: 50vb;
   background-color: lightgrey;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 main {

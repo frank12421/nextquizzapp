@@ -1,0 +1,18 @@
+header {
+  background-color: var(--globalBackgroundColor);
+  border-radius: var(--globalRadius) var(--globalRadius) 0px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__articel {
+  width: var(--globalContainerwidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
