@@ -10,3 +10,22 @@
   --globalRadius: 15px;
   --globalContainerwidth: 85%;
 }
+
+body {
+  display: grid;
+  grid-template-rows: 120px auto 120px;
+  justify-items: center;
+  //  align-items: center;
+  height: 100vh;
+  max-width: 600px;
+  background-color: lightgrey;
+}
+
+main {
+  overflow-y: scroll;
+}
+
+.card {
+  background-color: var(--globalBackgroundColor);
+  height: 150px;
+}
