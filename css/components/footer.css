@@ -8,7 +8,10 @@ footer {
 }
 
 .footer__section {
+  width: var(--globalContainerwidth);
   background-color: var(--globalCardBackgroundColor);
-  height: 70%;
   border-radius: var(--globalRadius);
+  display: flex;
+  /* gap: 50px; */
+  justify-content: space-around;
 }
