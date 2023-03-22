@@ -1,0 +1,7 @@
+.card {
+  width: var(--globalContainerwidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  height: 200px;
+  position: relative;
+}
