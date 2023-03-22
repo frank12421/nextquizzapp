@@ -1,0 +1,17 @@
+footer {
+  background-color: var(--globalBackgroundColor);
+  border-radius: 0px 0px var(--globalRadius) var(--globalRadius);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__section {
+  width: var(--globalContainerwidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  display: flex;
+  /* gap: 50px; */
+  justify-content: space-around;
+}
