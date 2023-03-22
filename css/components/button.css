@@ -1,3 +1,43 @@
+.bookmark__button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: -35px;
+  top: 15px;
+}
+
+.bookmark__button__svg {
+  width: 50px;
+  height: auto;
+  fill: none;
+  stroke: #323232;
+  /* stroke-width: 1px; */
+  /* stroke-linejoin: round; */
+}
+
+.bookmark__button__svg:hover,
+.bookmark__button__svg:focus {
+  fill: rgba(184, 135, 11, 0.484);
+}
+
+.bookmark__button__svg--marked {
+  fill: darkgoldenrod;
+}
+
+.card__bookmark {
+  position: relative;
+}
+
+.button__answer {
+  width: auto;
+  font-size: 1.1rem;
+  margin-left: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: tomato;
+  /* margin-bottom: 30px; */
+}
+
 .footer__button__svg {
   width: 50px;
   height: auto;

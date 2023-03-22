@@ -17,8 +17,8 @@ body {
   justify-items: center;
   /* align-items: center; */
   height: 100vh;
-  max-width: 80vb;
-  min-width: 50vb;
+  max-width: 60vb;
+  min-width: 40vb;
   background-color: lightgrey;
   margin: auto;
 }
