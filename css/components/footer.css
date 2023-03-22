@@ -1,0 +1,14 @@
+footer {
+  background-color: var(--globalBackgroundColor);
+  border-radius: 0px 0px var(--globalRadius) var(--globalRadius);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__section {
+  background-color: var(--globalCardBackgroundColor);
+  height: 70%;
+  border-radius: var(--globalRadius);
+}
