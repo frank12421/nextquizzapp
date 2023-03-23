@@ -1,0 +1,29 @@
+.new__Question,
+.new__Answer {
+  width: var(--globalContainerwidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  font-size: 1.3rem;
+  padding: 4%;
+}
+
+textarea {
+  border: none;
+  background-color: transparent;
+  margin-top: 10px;
+}
+
+textarea:valid {
+  border: 1px solid lightblue;
+}
+
+textarea:invalid :active {
+  border: 1px solid lightsalmon;
+}
+
+.new__question__text,
+.new__answer__text {
+  /* margin: auto; */
+  font-size: 1.3rem;
+  resize: none;
+}
