@@ -8,9 +8,10 @@
   flex-direction: column;
   gap: 40px;
 }
-
+/* 
 .card__answer {
-}
+
+} */
 
 .card__line {
   height: 2px;
