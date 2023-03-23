@@ -1,16 +1,36 @@
-.new__Question,
-.new__Answer {
+.new__form {
   width: var(--globalContainerwidth);
+}
+
+.new__Question,
+.new__Answer,
+.input__tag {
+  /* width: 100%; */
+  /* width: var(--globalContainerwidth); */
   background-color: var(--globalCardBackgroundColor);
   border-radius: var(--globalRadius);
   font-size: 1.3rem;
   padding: 4%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input__tag__input {
+  background-color: transparent;
+  border: 1px solid lightblue;
+  font-size: 1.5rem;
+}
+
+label {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
 textarea {
   border: none;
   background-color: transparent;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 textarea:valid {

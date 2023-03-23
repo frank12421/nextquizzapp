@@ -28,7 +28,8 @@
   position: relative;
 }
 
-.button__hide__answer {
+.button__hide__answer,
+.button__form__submit {
   width: 27%;
   font-size: 1.1rem;
   margin-left: auto;
@@ -36,6 +37,10 @@
   border-radius: 10px;
   background-color: tomato;
   /* margin-bottom: 30px; */
+}
+
+.button__form__submit {
+  margin: auto;
 }
 
 .button__show__answer {
