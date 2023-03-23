@@ -1,10 +1,26 @@
 //  ----- New Form -----
 const newForm = document.querySelector('[data-js="newForm"]');
 const newMain = document.querySelector("main");
-console.log(newMain);
+//console.log(newMain);
+
 newForm.newQuestion.value = "";
 newForm.newAnswer.value = "";
 newForm.inputTag.value = "";
+
+const charQuestion = document.querySelector('[data-js="charQuestion"]');
+const charAnswer = document.querySelector('[data-js="charAnswer"]');
+
+newForm.newQuestion.addEventListener("input", (event) => {
+  const charcounter =
+    150 - Number(event.target.value.length) + "  character left";
+  charQuestion.textContent = charcounter;
+});
+
+newForm.newAnswer.addEventListener("input", (event) => {
+  const charcounter =
+    150 - Number(event.target.value.length) + "  character left";
+  charAnswer.textContent = charcounter;
+});
 
 newForm.addEventListener("submit", (event) => {
   event.preventDefault();

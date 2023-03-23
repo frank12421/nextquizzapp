@@ -47,3 +47,9 @@ textarea:invalid :active {
   font-size: 1.3rem;
   resize: none;
 }
+
+.charCounter {
+  padding-top: 2px;
+  font-size: 0.8rem;
+  align-self: end;
+}
