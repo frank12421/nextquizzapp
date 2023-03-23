@@ -1,3 +1,8 @@
+// footer nav mark full color
+
+const docTitel = document.title;
+console.log(docTitel);
+
 // --- init hide answer / show Button ---
 const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
 const buttonShowAnswer = document.querySelector('[data-js="buttonShowAnswer"]');
