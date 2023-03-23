@@ -54,6 +54,7 @@
 }
 
 .footer__button__svg:hover,
-.footer__button__svg:focus {
+.footer__button__svg:focus,
+.footer__button__svg--aktiv {
   fill: darkgoldenrod;
 }
