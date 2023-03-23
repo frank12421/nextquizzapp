@@ -2,12 +2,12 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  right: -35px;
-  top: 15px;
+  right: -52px;
+  top: 17px;
 }
 
 .bookmark__button__svg {
-  width: 50px;
+  width: 45px;
   height: auto;
   fill: none;
   stroke: #323232;
@@ -29,7 +29,7 @@
 }
 
 .button__answer {
-  width: auto;
+  width: 27%;
   font-size: 1.1rem;
   margin-left: auto;
   padding: 10px;
