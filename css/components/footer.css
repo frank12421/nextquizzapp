@@ -14,4 +14,5 @@ footer {
   display: flex;
   /* gap: 50px; */
   justify-content: space-around;
+  padding: 8px 0px;
 }
