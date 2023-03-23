@@ -15,12 +15,12 @@
   /* stroke-linejoin: round; */
 }
 
-.bookmark__button__svg:hover,
-.bookmark__button__svg:focus {
-  fill: rgba(184, 135, 11, 0.484);
+.bookmark__button__svg--marked {
+  fill: darkgoldenrod;
 }
 
-.bookmark__button__svg--marked {
+.bookmark__button__svg:hover,
+.bookmark__button__svg:focus {
   fill: darkgoldenrod;
 }
 
