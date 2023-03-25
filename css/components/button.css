@@ -5,9 +5,10 @@
 
 .bookmark__button__svg {
   width: 35px;
-  height: auto;
+  /* height: auto; */
   fill: none;
   stroke: #323232;
+  /* bottom: -5px; */
 }
 
 .bookmark__button__svg--marked {
