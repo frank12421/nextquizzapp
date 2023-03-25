@@ -1,6 +1,5 @@
 footer {
   border-radius: 0px 0px var(--globalRadius) var(--globalRadius);
-
   justify-content: center;
   align-items: center;
 }
