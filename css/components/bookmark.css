@@ -1,0 +1,18 @@
+.cardContainer,
+.card__question,
+.card__answer {
+  width: var(--globalContainerWidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  min-height: 125px;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalfont,
+.card__question,
+.card__answer {
+  font-size: 1.2rem;
+}
