@@ -33,12 +33,38 @@ h2 {
 }
 
 main {
-  width: 100%;
   overflow-y: scroll;
-  background-color: var(--globalBackgroundColor);
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   gap: 30px;
   /* position: relative; */
+}
+
+.globalbackground,
+main,
+header,
+footer {
+  width: 100%;
+  background-color: var(--globalBackgroundColor);
+  display: flex;
+}
+
+.globalcontainer,
+.card__question,
+.card__answer,
+.header__articel,
+.footer__section {
+  width: var(--globalContainerWidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalfont,
+.card__question,
+.card__answer {
+  font-size: 1.2rem;
 }

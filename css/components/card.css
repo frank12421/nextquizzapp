@@ -1,3 +1,10 @@
+.cardContainer,
+.card__question,
+.card__answer {
+  min-height: 125px;
+  padding: 5%;
+}
+
 .card {
   width: var(--globalContainerwidth);
   background-color: var(--globalCardBackgroundColor);
@@ -8,10 +15,6 @@
   flex-direction: column;
   gap: 40px;
 }
-/* 
-.card__answer {
-
-} */
 
 .card__line {
   height: 2px;
