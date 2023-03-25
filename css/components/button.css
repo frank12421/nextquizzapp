@@ -40,11 +40,20 @@
 }
 
 .button__show__answer {
-  width: 100%;
+  font-size: 2rem;
+  border: none;
+  padding: 10px 0;
+  /* width: 100%;
   height: 50px;
   border-radius: var(--globalRadius);
   font-size: 1.7rem;
-  background-color: var(--globalBackgroundColor);
+  background-color: var(--globalBackgroundColor); */
+}
+
+.button__show__answer:hover {
+  color: var(--globalCardBackgroundColor);
+  background-color: darkgoldenrod;
+  border: 1px dotted #323232;
 }
 
 .footer__button__svg {
