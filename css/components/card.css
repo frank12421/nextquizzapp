@@ -1,7 +1,6 @@
 .cardContainer,
-.card__question,
-.card__answer {
-  min-height: 125px;
+.card__question {
+  min-height: 100px;
   padding: 5%;
   flex-direction: column;
   gap: 10px;

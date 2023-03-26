@@ -55,7 +55,7 @@ footer {
 .card__answer,
 .header__articel,
 .footer__section,
-.buton__show__answer {
+.button__show__answer {
   width: var(--globalContainerWidth);
   background-color: var(--globalCardBackgroundColor);
   border-radius: var(--globalRadius);
