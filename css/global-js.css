@@ -1,0 +1,36 @@
+.card__box {
+  width: var(--globalContainerWidth);
+  background-color: var(--globalCardBackgroundColor);
+  border-radius: var(--globalRadius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  /* padding: 20px; */
+} /* Hintergrund für Karten*/
+
+.card__text {
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin: 20px;
+}
+
+.new__card__footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.new__card__footer ul {
+  /* background-color: green; */
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.new__card__footer li {
+}
