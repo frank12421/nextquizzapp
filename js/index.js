@@ -14,35 +14,36 @@ const quizz = [
     tag: ["max", "html", "css"],
   },
 ];
-
 const cardFocus = 1;
 
 // --- init hide answer / show Button ---
 const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
 const buttonShowAnswer = document.querySelector('[data-js="buttonShowAnswer"]');
-const cardAnswerText = document.querySelector('[data-js="cardAnswerText"]');
+const cardAnswer = document.querySelector('[data-js="cardAnswer"]');
 
-// buttonHideAnswer.style.display = "none";
-// cardAnswerText.style.display = "none";
-
-// eventlistener Show Answer
+// ---- eventlistener Show Answer ----
 
 buttonShowAnswer.addEventListener("click", (event) => {
   //console.log("yes");
-  const myAnswer = document.createElement("p");
+  const myAnswerSection = document.createElement("sektion");
+  const myAnswerText = document.createElement("p");
   const myButton = document.createElement("button");
+  myAnswerSection.setAttribute("data-js", "answerSection");
+  myAnswerSection.classList.add("globalcontainer", "cardContainer");
+  myAnswerText.classList.add("cardContainer");
+  myAnswerText.textContent = quizz[cardFocus].antwort;
 
-  myAnswer.classList.add("cardContainer");
-  myAnswer.textContent = quizz[cardFocus].antwort;
   myButton.type = "button";
   myButton.textContent = "Hide Answer";
-  myButton.classList.add("button__show__answer");
-  myAnswer.append(myButton);
+  myButton.classList.add("button__hide__answer");
+  myButton.addEventListener("click", (event) => {
+    myAnswerSection.remove();
+    buttonShowAnswer.style.display = "";
+  });
 
-  cardAnswerText.append(myAnswer);
+  myAnswerSection.append(myAnswerText, myButton);
+  cardAnswer.append(myAnswerSection);
   buttonShowAnswer.style.display = "none";
-  // cardAnswerText.style.display = "";
-  // buttonHideAnswer.style.display = "";
 });
 
 // eventListener Hide cardAnswerText

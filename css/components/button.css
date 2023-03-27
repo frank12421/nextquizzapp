@@ -26,12 +26,14 @@
 
 .button__hide__answer,
 .button__form__submit {
-  width: 27%;
-  font-size: 1.1rem;
-  margin-left: auto;
+  /* width: 27%; */
+  /* font-size: 1.1rem; */
+  /* margin-left: auto; */
+  align-self: end;
   padding: 10px;
   border-radius: 10px;
-  background-color: tomato;
+  background-color: var(--globalBackgroundColor);
+  border: none;
   /* margin-bottom: 30px; */
 }
 
@@ -43,11 +45,6 @@
   font-size: 2rem;
   border: none;
   padding: 10px 0;
-  /* width: 100%;
-  height: 50px;
-  border-radius: var(--globalRadius);
-  font-size: 1.7rem;
-  background-color: var(--globalBackgroundColor); */
 }
 
 .button__show__answer:hover {
