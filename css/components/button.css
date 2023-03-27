@@ -1,18 +1,14 @@
 .bookmark__button {
   background-color: transparent;
   border: none;
-  position: absolute;
-  right: -52px;
-  top: 17px;
 }
 
 .bookmark__button__svg {
-  width: 45px;
-  height: auto;
+  width: 35px;
+  /* height: auto; */
   fill: none;
   stroke: #323232;
-  /* stroke-width: 1px; */
-  /* stroke-linejoin: round; */
+  /* bottom: -5px; */
 }
 
 .bookmark__button__svg--marked {
@@ -30,12 +26,14 @@
 
 .button__hide__answer,
 .button__form__submit {
-  width: 27%;
-  font-size: 1.1rem;
-  margin-left: auto;
+  /* width: 27%; */
+  /* font-size: 1.1rem; */
+  /* margin-left: auto; */
+  align-self: end;
   padding: 10px;
   border-radius: 10px;
-  background-color: tomato;
+  background-color: var(--globalBackgroundColor);
+  border: none;
   /* margin-bottom: 30px; */
 }
 
@@ -44,11 +42,15 @@
 }
 
 .button__show__answer {
-  width: 100%;
-  height: 50px;
-  border-radius: var(--globalRadius);
-  font-size: 1.7rem;
-  background-color: var(--globalBackgroundColor);
+  font-size: 2rem;
+  border: none;
+  padding: 10px 0;
+}
+
+.button__show__answer:hover {
+  color: var(--globalCardBackgroundColor);
+  background-color: darkgoldenrod;
+  border: 1px dotted #323232;
 }
 
 .footer__button__svg {

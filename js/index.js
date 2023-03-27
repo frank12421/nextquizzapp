@@ -1,7 +1,70 @@
-//  ----- New Form -----
+const quizz = [
+  {
+    frage: "Was ist die antwort auf das Universum  und alles andere?",
+    antwort: "42",
+    bookmark: false,
+    tag: ["all", "html", "css"],
+  },
+  {
+    frage:
+      "Diese Frage ist eigentlich keine wirkliche Frage, sondern lediglich ein Text der die vollen 150 Zeichen ausnutzt und dann ohne Frage einfach unvollend",
+    antwort:
+      "Und hier folgt die Antwort - ebenfalls nicht zu kurz, nicht zu lang - damit sie gut zu merken ist.",
+    bookmark: false,
+    tag: ["max", "html", "css"],
+  },
+];
+const cardFocus = 1;
+
+// --- init hide answer / show Button ---
+const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
+const buttonShowAnswer = document.querySelector('[data-js="buttonShowAnswer"]');
+const cardAnswer = document.querySelector('[data-js="cardAnswer"]');
+
+// ---- eventlistener Show Answer ----
+
+buttonShowAnswer.addEventListener("click", (event) => {
+  //console.log("yes");
+  const myAnswerSection = document.createElement("sektion");
+  const myAnswerText = document.createElement("p");
+  const myButton = document.createElement("button");
+  myAnswerSection.setAttribute("data-js", "answerSection");
+  myAnswerSection.classList.add("globalcontainer", "cardContainer");
+  myAnswerText.classList.add("cardContainer");
+  myAnswerText.textContent = quizz[cardFocus].antwort;
+
+  myButton.type = "button";
+  myButton.textContent = "Hide Answer";
+  myButton.classList.add("button__hide__answer");
+  myButton.addEventListener("click", (event) => {
+    myAnswerSection.remove();
+    buttonShowAnswer.style.display = "";
+  });
+
+  myAnswerSection.append(myAnswerText, myButton);
+  cardAnswer.append(myAnswerSection);
+  buttonShowAnswer.style.display = "none";
+});
+
+// eventListener Hide cardAnswerText
+
+/*buttonHideAnswer.addEventListener("click", (event) => {
+  //   console.log("yes");
+  cardAnswerText.style.display = "none";
+  buttonShowAnswer.style.display = "";
+  buttonHideAnswer.style.display = "none";
+});*/
+
+// console.log(quizz[1].frage);
+
+/*mal klären: 
+const mytitel = document.head.title.textContent;
+console.log(mytitel);*/
+
+/*  ----- New Form -----
 const newForm = document.querySelector('[data-js="newForm"]');
 const newMain = document.querySelector("main");
-//console.log(newMain);
+//console.log(newForm);
 
 newForm.newQuestion.value = "";
 newForm.newAnswer.value = "";
@@ -24,17 +87,8 @@ newForm.newAnswer.addEventListener("input", (event) => {
 
 newForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  // console.log("yes");
-
-  // const newQuestion = newForm.newQuestion.value;
-  // const newAnswer = newForm.newAnswer.value;
-  // const newTag = newForm.inputTag.value;
-
-  //console.log(`Frage: ${newQuestion} Antwort: ${newAnswer} Tag: ${newTag}`);
-
   const newCard = document.createElement("article");
   newCard.classList.add("card");
-  // console.log(newCard);
   const newQuestion = document.createElement("p");
   newQuestion.classList.add("card__question");
   newQuestion.textContent = newForm.newQuestion.value;
@@ -52,31 +106,7 @@ newForm.addEventListener("submit", (event) => {
   newMain.append(newCard);
 });
 
-// --- init hide answer / show Button ---
-const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
-const buttonShowAnswer = document.querySelector('[data-js="buttonShowAnswer"]');
-const cardAnswerText = document.querySelector('[data-js="cardAnswerText"]');
-
-// buttonHideAnswer.style.display = "none";
-// cardAnswerText.style.display = "none";
-
-// eventlistener Show Answer
-
-buttonShowAnswer.addEventListener("click", (event) => {
-  //   console.log("yes");
-  buttonShowAnswer.style.display = "none";
-  cardAnswerText.style.display = "";
-  buttonHideAnswer.style.display = "";
-});
-
-// eventListener Hide cardAnswerText
-
-buttonHideAnswer.addEventListener("click", (event) => {
-  //   console.log("yes");
-  cardAnswerText.style.display = "none";
-  buttonShowAnswer.style.display = "";
-  buttonHideAnswer.style.display = "none";
-});
+//  ----- Ende New Form ----- */
 
 // ---- Card Bookmark toogle Start ------
 const bookmarkButtonCard = document.querySelector(
