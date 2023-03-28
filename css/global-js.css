@@ -32,5 +32,15 @@
   gap: 10px;
 }
 
-.new__card__footer li {
+/*.new__card__footer li {
+}*/
+
+.new__card__footer__tag {
+  text-decoration: none;
+  list-style: none;
+  font-size: 0.8rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: lightgray;
+  padding: 5px;
 }

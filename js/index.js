@@ -10,7 +10,7 @@ const quizz = [
       "Diese Frage ist eigentlich keine wirkliche Frage, sondern lediglich ein Text der die vollen 150 Zeichen ausnutzt und dann ohne Frage einfach unvollend",
     antwort:
       "Und hier folgt die Antwort - ebenfalls nicht zu kurz, nicht zu lang - damit sie gut zu merken ist.",
-    bookmark: false,
+    bookmark: true,
     tag: ["max", "html", "css"],
   },
 ];
@@ -19,47 +19,89 @@ const cardFocus = 1;
 
 myMain.append(oneCard(quizz[1].frage, "question"));
 
-function oneCard(text, footer) {
-  const myQuestion = document.createElement("sektion");
-  myQuestion.classList.add("card__box");
+myMain.append(oneCard("Answer", "answer"));
+
+myMain.append(oneCard("ohne Footer", ""));
+
+function oneCard(text, myCardTyp) {
+  //  console.log(`Function oneCard myFooter: ${myCardTyp}`);
+  const mySection = document.createElement("sektion");
+  mySection.classList.add("card__box");
+  // -- entscheidet ob die Card Text bekommt ---
   if (text.length > 0) {
     const myText = document.createElement("article");
     myText.textContent = text;
     myText.classList.add("card__text");
-    myQuestion.append(myText);
+    mySection.append(myText);
   }
-  if ((footer = "question")) {
-    console.log("yes");
-    // hier funktion
-    myQuestion.append(cardFooter("question"));
+  // --- entscheidung ob die Card einen Footer bekommt ---
+  if (myCardTyp.length > 0) {
+    mySection.append(cardFooter(myCardTyp));
+    return mySection;
+  } else {
+    return mySection;
   }
-
-  return myQuestion;
 }
 
 function cardFooter(theEnd) {
-  console.log(theEnd);
-  const myFooter = document.createElement("section");
+  // --- entscheidet welcher Card-Footer eingebaut wird ---
+  console.log(`Function cardFooter: ${theEnd}`);
   if (theEnd === "question") {
-    myFooter.classList.add("new__card__footer");
-    const myUl = document.createElement("ul");
-    for (let x = 1; x < 4; x++) {
-      const myLi = document.createElement("li");
-      // -- hier müssen die tags rein;
-      myLi.textContent = "#Hallo";
-      myUl.append(myLi);
-    }
-    myFooter.append(myUl);
-    const myBookmarkButton = document.createElement("button");
-    myBookmarkButton.textContent = "Test";
-    //button.createElement("svg");
-    /*myBookmarkButton.setAttribute(
-    "path",
-      (d =
-        "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z");*/
-    myFooter.append(myBookmarkButton);
+    //  console.log(`if in oneCard: ${theEnd}`);
+    const myTemp = addCardFooterQuestion(theEnd);
+    //myQuestion.append(cardFooter(theEnd));
+    // console.log(`Return-2 ${myTemp}`);
+    return myTemp;
+  } else if (theEnd === "answer") {
+    // console.log(`if in oneCard: ${theEnd}`);
+    const myTemp = addCardFooterAnswer(theEnd);
+    // console.log(`Return-Answer2 ${myTemp}`);
+    return myTemp;
   }
-  return myFooter;
+
+  // if (theEnd === "question") {
+  //   myFooter.append(addCardFooterQuestion(theEnd));
+  // }
+  //  return myFooter;
+}
+
+function addCardFooterQuestion(theEnd) {
+  console.log(`Function addCardFooterQuestion: ${theEnd}`);
+  const mySection = document.createElement("section");
+  mySection.classList.add("new__card__footer");
+  //console.log(`MySection-1: ${mySection}`);
+  const myUl = document.createElement("ul");
+  for (let x = 1; x < 4; x++) {
+    const myLi = document.createElement("li");
+    myLi.classList.add("new__card__footer__tag");
+    // - Tags müssen noch zu Button werden
+    myLi.textContent = `Tag-${x}`;
+    //  console.log(myLi);
+    myUl.append(myLi);
+    //    console.log(myUl);
+  }
+  mySection.append(myUl);
+  //  console.log(`MySection-2: ${mySection}`);
+  const myBookmarkButton = document.createElement("button");
+  myBookmarkButton.textContent = "Test";
+  //button.createElement("svg");
+  /*myBookmarkButton.setAttribute(
+  "path",
+    (d =
+      "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z");*/
+  mySection.append(myBookmarkButton);
+  //console.log(`MySection-3: ${mySection}`);
+  return mySection;
+}
+
+function addCardFooterAnswer(theEnd) {
+  console.log(`Function addCardFooterAnswer: ${theEnd}`);
+  const mySection = document.createElement("section");
+  const myAnswerHideButton = document.createElement("button");
+  myAnswerHideButton.textContent = "Answer Hide";
+  mySection.classList.add("new__card__footer");
+  mySection.append(myAnswerHideButton);
+  return mySection;
 }
 
 // --- init hide answer / show Button ---
