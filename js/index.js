@@ -27,21 +27,46 @@ function oneCard(text, myCardTyp) {
   //  console.log(`Function oneCard myFooter: ${myCardTyp}`);
   const mySection = document.createElement("sektion");
   mySection.classList.add("card__box");
+
   // -- entscheidet ob die Card Text bekommt ---
-  if (text.length > 0) {
+  /*if (text.length > 0) {
     const myText = document.createElement("article");
     myText.textContent = text;
     myText.classList.add("card__text");
-    mySection.append(myText);
+    mySection.append(myText);*/
   }
-  // --- entscheidung ob die Card einen Footer bekommt ---
-  if (myCardTyp.length > 0) {
-    mySection.append(cardFooter(myCardTyp));
-    return mySection;
-  } else {
-    return mySection;
+
+  switch (myCardTyp) {
+    case "question":
+      console.log("switch question");
+      mySection.append(newQuestionCard(text))
+      mySection.append(cardFooter(myCardTyp));
+      return mySection;
+      break;
+
+    case "answer":
+
+    break;
+
+    default:
+      return mySection;
   }
 }
+
+function newQuestionCard (text) {
+  const myText = document.createElement("article");
+  const myTags = 3
+  myText.textContent = text;
+  myText.classList.add("card__text");
+  mySection.append(myText);
+  mySection.append(addCardFooterQuestion(myTags));
+return mySection;
+}
+
+
+
+
+
 
 function cardFooter(theEnd) {
   // --- entscheidet welcher Card-Footer eingebaut wird ---
@@ -101,6 +126,7 @@ function addCardFooterAnswer(theEnd) {
   myAnswerHideButton.textContent = "Answer Hide";
   mySection.classList.add("new__card__footer");
   mySection.append(myAnswerHideButton);
+
   return mySection;
 }
 
