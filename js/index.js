@@ -24,44 +24,47 @@ function newAnswerCard(text) {
   // bekommt den Text zugewiesen. Erhält einen Button zu anzeigen/verstecken
   const cardSection = document.createElement("sektion");
   cardSection.classList.add("card__box");
-  cardSection.append(showAnswerButton(text));
+  cardSection.setAttribute("data-js", "answerCardSection");
+  cardSection.append(answerContent(text));
+  cardSection.append(newAnswerButton());
   return cardSection;
 }
 
-function showAnswerButton(text) {
-  const showAnswerButton = document.createElement("button");
-  showAnswerButton.type = "button";
-  showAnswerButton.setAttribute("data-js", "answerButton");
-  showAnswerButton.textContent = "Show Answer";
-  showAnswerButton.classList.add("button__show__answer");
-  showAnswerButton.addEventListener("click", (event) => {
-    const hideAnswerButton = document.querySelector(`[data-js="answerButton"]`);
-    hideAnswerButton.append(showAnswerContent(text));
-    hideAnswerButton.remove();
-  });
-  return showAnswerButton;
-}
-
-function showAnswerContent(text) {
-  const cardContent = document.createElement("div");
-  const cardText = document.createElement("article");
+function answerContent(text) {
+  const cardDiv = document.createElement("div");
+  cardDiv.setAttribute("data-js", "answerContent");
+  cardDiv.classList.add("answer__content");
+  const cardContent = document.createElement("article");
   const cardAnswerHideButton = document.createElement("button");
-  cardContent.setAttribute("data-js", "hideAnswerButton");
-  cardText.classList.add("card__text");
-  cardText.textContent = text;
-  cardContent.append(cardText);
-  //cardSection.append(cardText);
-  //cardSection.append(addCardFooterAnswer());
+  cardContent.classList.add("card__text");
+  cardContent.textContent = text;
+  cardDiv.append(cardContent);
   cardAnswerHideButton.textContent = "Answer Hide";
   cardAnswerHideButton.classList.add("new__card__footer");
-  //cardAnswerHideButton.addEventListener("click", (event) => {
-  //  const hideIt = document.querySelector(`[data-js="hideAnswerButton"]`);
-  //  hideIt.remove();
-  //    cardFooter.append(showAnswerButton());
-  //});
-  cardContent.append(cardAnswerHideButton);
-  console.log(cardContent);
-  return cardContent;
+  cardAnswerHideButton.addEventListener("click", (event) => {
+    const hideAnswer = document.querySelector(`[data-js="answerContent"]`);
+    const showButton = document.querySelector(`[data-js="answerButton"]`);
+    hideAnswer.style.display = "none";
+    showButton.style.display = "";
+  });
+  cardDiv.append(cardAnswerHideButton);
+  return cardDiv;
+}
+
+function newAnswerButton() {
+  const contentAnswerButton = document.createElement("button");
+  contentAnswerButton.type = "button";
+  contentAnswerButton.setAttribute("data-js", "answerButton");
+  contentAnswerButton.textContent = "Show Answer";
+  contentAnswerButton.classList.add("button__show__answer");
+  contentAnswerButton.addEventListener("click", (event) => {
+    console.log("click");
+    const showAnswer = document.querySelector(`[data-js="answerContent"]`);
+    const hideAnswerButton = document.querySelector(`[data-js="answerButton"]`);
+    showAnswer.style.display = "block";
+    hideAnswerButton.style.display = "none";
+  });
+  return contentAnswerButton;
 }
 
 function newQuestionCard(text) {
