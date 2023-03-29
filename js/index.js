@@ -17,96 +17,35 @@ const quizz = [
 const myMain = document.querySelector("main");
 const cardFocus = 1;
 
-myMain.append(oneCard(quizz[1].frage, "question"));
+myMain.append(newQuestionCard(quizz[1].frage));
 
-myMain.append(oneCard("Answer", "answer"));
-
-myMain.append(oneCard("ohne Footer", ""));
-
-function oneCard(text, myCardTyp) {
-  //  console.log(`Function oneCard myFooter: ${myCardTyp}`);
-  const mySection = document.createElement("sektion");
-  mySection.classList.add("card__box");
-
-  // -- entscheidet ob die Card Text bekommt ---
-  /*if (text.length > 0) {
-    const myText = document.createElement("article");
-    myText.textContent = text;
-    myText.classList.add("card__text");
-    mySection.append(myText);*/
-  }
-
-  switch (myCardTyp) {
-    case "question":
-      console.log("switch question");
-      mySection.append(newQuestionCard(text))
-      mySection.append(cardFooter(myCardTyp));
-      return mySection;
-      break;
-
-    case "answer":
-
-    break;
-
-    default:
-      return mySection;
-  }
+function newQuestionCard(text) {
+  // erstellt eine neue Fragen-Karte
+  // bekommt den Text zugewiesen - übergibt die Anzahl der Tags an die Footer Function
+  const cardSection = document.createElement("sektion");
+  cardSection.classList.add("card__box");
+  const cardText = document.createElement("article");
+  cardText.classList.add("card__text");
+  cardText.textContent = text;
+  const countTags = 3;
+  cardSection.append(cardText);
+  cardSection.append(addCardFooterQuestion(countTags));
+  return cardSection;
 }
 
-function newQuestionCard (text) {
-  const myText = document.createElement("article");
-  const myTags = 3
-  myText.textContent = text;
-  myText.classList.add("card__text");
-  mySection.append(myText);
-  mySection.append(addCardFooterQuestion(myTags));
-return mySection;
-}
-
-
-
-
-
-
-function cardFooter(theEnd) {
-  // --- entscheidet welcher Card-Footer eingebaut wird ---
-  console.log(`Function cardFooter: ${theEnd}`);
-  if (theEnd === "question") {
-    //  console.log(`if in oneCard: ${theEnd}`);
-    const myTemp = addCardFooterQuestion(theEnd);
-    //myQuestion.append(cardFooter(theEnd));
-    // console.log(`Return-2 ${myTemp}`);
-    return myTemp;
-  } else if (theEnd === "answer") {
-    // console.log(`if in oneCard: ${theEnd}`);
-    const myTemp = addCardFooterAnswer(theEnd);
-    // console.log(`Return-Answer2 ${myTemp}`);
-    return myTemp;
-  }
-
-  // if (theEnd === "question") {
-  //   myFooter.append(addCardFooterQuestion(theEnd));
-  // }
-  //  return myFooter;
-}
-
-function addCardFooterQuestion(theEnd) {
-  console.log(`Function addCardFooterQuestion: ${theEnd}`);
-  const mySection = document.createElement("section");
-  mySection.classList.add("new__card__footer");
-  //console.log(`MySection-1: ${mySection}`);
+function addCardFooterQuestion(countTags) {
+  // baut den Footer in eine Fragekarte ein.
+  const footerSection = document.createElement("section");
+  footerSection.classList.add("new__card__footer");
   const myUl = document.createElement("ul");
-  for (let x = 1; x < 4; x++) {
+  for (let x = 1; x <= countTags; x++) {
     const myLi = document.createElement("li");
     myLi.classList.add("new__card__footer__tag");
     // - Tags müssen noch zu Button werden
     myLi.textContent = `Tag-${x}`;
-    //  console.log(myLi);
     myUl.append(myLi);
-    //    console.log(myUl);
   }
-  mySection.append(myUl);
-  //  console.log(`MySection-2: ${mySection}`);
+  footerSection.append(myUl);
   const myBookmarkButton = document.createElement("button");
   myBookmarkButton.textContent = "Test";
   //button.createElement("svg");
@@ -114,9 +53,8 @@ function addCardFooterQuestion(theEnd) {
   "path",
     (d =
       "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z");*/
-  mySection.append(myBookmarkButton);
-  //console.log(`MySection-3: ${mySection}`);
-  return mySection;
+  footerSection.append(myBookmarkButton);
+  return footerSection;
 }
 
 function addCardFooterAnswer(theEnd) {
@@ -126,7 +64,6 @@ function addCardFooterAnswer(theEnd) {
   myAnswerHideButton.textContent = "Answer Hide";
   mySection.classList.add("new__card__footer");
   mySection.append(myAnswerHideButton);
-
   return mySection;
 }
 
@@ -159,6 +96,19 @@ buttonShowAnswer.addEventListener("click", (event) => {
   cardAnswer.append(myAnswerSection);
   buttonShowAnswer.style.display = "none";
 });
+
+// ---- Card Bookmark toogle Start ------
+const bookmarkButtonCard = document.querySelector(
+  '[data-js="bookmarkButtonCard"]'
+);
+const bookmarkButtonSvg = document.querySelector(
+  '[data-js="bookmarkButtonSvg"]'
+);
+
+bookmarkButtonCard.addEventListener("click", () => {
+  bookmarkButtonSvg.classList.toggle("bookmark__button__svg--marked");
+});
+// ---- Card Bookmark toogle End ------
 
 // eventListener Hide cardAnswerText
 
@@ -221,16 +171,3 @@ newForm.addEventListener("submit", (event) => {
 });
 
 //  ----- Ende New Form ----- */
-
-// ---- Card Bookmark toogle Start ------
-const bookmarkButtonCard = document.querySelector(
-  '[data-js="bookmarkButtonCard"]'
-);
-const bookmarkButtonSvg = document.querySelector(
-  '[data-js="bookmarkButtonSvg"]'
-);
-
-bookmarkButtonCard.addEventListener("click", () => {
-  bookmarkButtonSvg.classList.toggle("bookmark__button__svg--marked");
-});
-// ---- Card Bookmark toogle End ------
