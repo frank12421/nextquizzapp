@@ -17,7 +17,52 @@ const quizz = [
 const myMain = document.querySelector("main");
 const cardFocus = 1;
 
-myMain.append(newQuestionCard(quizz[1].frage));
+myMain.append(newAnswerCard(quizz[1].antwort));
+
+function newAnswerCard(text) {
+  // erstellt eine neue Antwort-Karte
+  // bekommt den Text zugewiesen. Erhält einen Button zu anzeigen/verstecken
+  const cardSection = document.createElement("sektion");
+  cardSection.classList.add("card__box");
+  cardSection.append(showAnswerButton(text));
+  return cardSection;
+}
+
+function showAnswerButton(text) {
+  const showAnswerButton = document.createElement("button");
+  showAnswerButton.type = "button";
+  showAnswerButton.setAttribute("data-js", "answerButton");
+  showAnswerButton.textContent = "Show Answer";
+  showAnswerButton.classList.add("button__show__answer");
+  showAnswerButton.addEventListener("click", (event) => {
+    const hideAnswerButton = document.querySelector(`[data-js="answerButton"]`);
+    hideAnswerButton.append(showAnswerContent(text));
+    hideAnswerButton.remove();
+  });
+  return showAnswerButton;
+}
+
+function showAnswerContent(text) {
+  const cardContent = document.createElement("div");
+  const cardText = document.createElement("article");
+  const cardAnswerHideButton = document.createElement("button");
+  cardContent.setAttribute("data-js", "hideAnswerButton");
+  cardText.classList.add("card__text");
+  cardText.textContent = text;
+  cardContent.append(cardText);
+  //cardSection.append(cardText);
+  //cardSection.append(addCardFooterAnswer());
+  cardAnswerHideButton.textContent = "Answer Hide";
+  cardAnswerHideButton.classList.add("new__card__footer");
+  //cardAnswerHideButton.addEventListener("click", (event) => {
+  //  const hideIt = document.querySelector(`[data-js="hideAnswerButton"]`);
+  //  hideIt.remove();
+  //    cardFooter.append(showAnswerButton());
+  //});
+  cardContent.append(cardAnswerHideButton);
+  console.log(cardContent);
+  return cardContent;
+}
 
 function newQuestionCard(text) {
   // erstellt eine neue Fragen-Karte
@@ -57,15 +102,7 @@ function addCardFooterQuestion(countTags) {
   return footerSection;
 }
 
-function addCardFooterAnswer(theEnd) {
-  console.log(`Function addCardFooterAnswer: ${theEnd}`);
-  const mySection = document.createElement("section");
-  const myAnswerHideButton = document.createElement("button");
-  myAnswerHideButton.textContent = "Answer Hide";
-  mySection.classList.add("new__card__footer");
-  mySection.append(myAnswerHideButton);
-  return mySection;
-}
+function addCardFooterAnswer(theEnd) {}
 
 // --- init hide answer / show Button ---
 const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
@@ -74,7 +111,7 @@ const cardAnswer = document.querySelector('[data-js="cardAnswer"]');
 
 // ---- eventlistener Show Answer ----
 
-buttonShowAnswer.addEventListener("click", (event) => {
+/*buttonShowAnswer.addEventListener("click", (event) => {
   //console.log("yes");
   const myAnswerSection = document.createElement("sektion");
   const myAnswerText = document.createElement("p");
@@ -95,7 +132,7 @@ buttonShowAnswer.addEventListener("click", (event) => {
   myAnswerSection.append(myAnswerText, myButton);
   cardAnswer.append(myAnswerSection);
   buttonShowAnswer.style.display = "none";
-});
+});*/
 
 // ---- Card Bookmark toogle Start ------
 const bookmarkButtonCard = document.querySelector(

@@ -44,3 +44,15 @@
   background-color: lightgray;
   padding: 5px;
 }
+
+.button__show__answer {
+  font-size: 2rem;
+  border: none;
+  padding: 10px 0;
+}
+
+.button__show__answer:hover {
+  color: var(--globalCardBackgroundColor);
+  background-color: darkgoldenrod;
+  border: 1px dotted #323232;
+}
