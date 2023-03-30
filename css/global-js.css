@@ -60,13 +60,20 @@
 
 .answer__content {
   display: flex;
-  display: none;
-
   flex-direction: column;
+  align-items: flex-end;
+  display: none;
 }
 
-.answer__card__footer {
-  /* width: 40%; */
-  right: 0px;
-  background-color: green;
+.answercard__button__hide {
+  width: 40%;
+  padding: 10px;
+  background-color: var(--globalBackgroundColor);
+  font-size: 1.2rem;
+  border: none;
+  border-radius: var(--globalRadius);
+}
+
+.answercard__button__hide:hover {
+  background-color: darkgoldenrod;
 }

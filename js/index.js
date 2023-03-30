@@ -45,8 +45,8 @@ function answerContent(text) {
   cardContent.classList.add("card__text");
   cardContent.textContent = text;
   cardDiv.append(cardContent);
-  cardAnswerHideButton.textContent = "Answer Hide";
-  cardAnswerHideButton.classList.add("answer__card__footer");
+  cardAnswerHideButton.textContent = "Hide Answer";
+  cardAnswerHideButton.classList.add("answercard__button__hide");
   cardAnswerHideButton.addEventListener("click", (event) => {
     const hideAnswer = document.querySelector(`[data-js="answerContent"]`);
     const showButton = document.querySelector(`[data-js="answerButton"]`);
@@ -67,7 +67,7 @@ function newAnswerButton() {
     console.log("click");
     const showAnswer = document.querySelector(`[data-js="answerContent"]`);
     const hideAnswerButton = document.querySelector(`[data-js="answerButton"]`);
-    showAnswer.style.display = "block";
+    showAnswer.style.display = "flex";
     hideAnswerButton.style.display = "none";
   });
   return contentAnswerButton;
@@ -82,11 +82,11 @@ function newQuestionCard(text) {
   cardText.textContent = text;
   const countTags = 3;
   cardSection.append(cardText);
-  cardSection.append(addCardFooterQuestion(countTags));
+  cardSection.append(addQuestionCardFooter(countTags));
   return cardSection;
 }
 
-function addCardFooterQuestion(countTags) {
+function addQuestionCardFooter(countTags) {
   // baut den Footer in eine Fragekarte ein.
   const footerSection = document.createElement("section");
   footerSection.classList.add("question__card__footer");
