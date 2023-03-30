@@ -16,14 +16,20 @@ const quizz = [
 ];
 const myMain = document.querySelector("main");
 const cardFocus = 1;
-
+myMain.append(newQuestionCard(quizz[1].frage));
 myMain.append(newAnswerCard(quizz[1].antwort));
+
+function cardContainer() {
+  // legt den Kartenhintergrund an
+  const cardSection = document.createElement("sektion");
+  cardSection.classList.add("card__box");
+  return cardSection;
+}
 
 function newAnswerCard(text) {
   // erstellt eine neue Antwort-Karte
   // bekommt den Text zugewiesen. Erhält einen Button zu anzeigen/verstecken
-  const cardSection = document.createElement("sektion");
-  cardSection.classList.add("card__box");
+  const cardSection = cardContainer();
   cardSection.setAttribute("data-js", "answerCardSection");
   cardSection.append(answerContent(text));
   cardSection.append(newAnswerButton());
@@ -40,7 +46,7 @@ function answerContent(text) {
   cardContent.textContent = text;
   cardDiv.append(cardContent);
   cardAnswerHideButton.textContent = "Answer Hide";
-  cardAnswerHideButton.classList.add("new__card__footer");
+  cardAnswerHideButton.classList.add("answer__card__footer");
   cardAnswerHideButton.addEventListener("click", (event) => {
     const hideAnswer = document.querySelector(`[data-js="answerContent"]`);
     const showButton = document.querySelector(`[data-js="answerButton"]`);
@@ -70,8 +76,7 @@ function newAnswerButton() {
 function newQuestionCard(text) {
   // erstellt eine neue Fragen-Karte
   // bekommt den Text zugewiesen - übergibt die Anzahl der Tags an die Footer Function
-  const cardSection = document.createElement("sektion");
-  cardSection.classList.add("card__box");
+  const cardSection = cardContainer();
   const cardText = document.createElement("article");
   cardText.classList.add("card__text");
   cardText.textContent = text;
@@ -84,11 +89,11 @@ function newQuestionCard(text) {
 function addCardFooterQuestion(countTags) {
   // baut den Footer in eine Fragekarte ein.
   const footerSection = document.createElement("section");
-  footerSection.classList.add("new__card__footer");
+  footerSection.classList.add("question__card__footer");
   const myUl = document.createElement("ul");
   for (let x = 1; x <= countTags; x++) {
     const myLi = document.createElement("li");
-    myLi.classList.add("new__card__footer__tag");
+    myLi.classList.add("question__card__footer__tag");
     // - Tags müssen noch zu Button werden
     myLi.textContent = `Tag-${x}`;
     myUl.append(myLi);
@@ -104,13 +109,6 @@ function addCardFooterQuestion(countTags) {
   footerSection.append(myBookmarkButton);
   return footerSection;
 }
-
-function addCardFooterAnswer(theEnd) {}
-
-// --- init hide answer / show Button ---
-const buttonHideAnswer = document.querySelector('[data-js="buttonHideAnswer"]');
-const buttonShowAnswer = document.querySelector('[data-js="buttonShowAnswer"]');
-const cardAnswer = document.querySelector('[data-js="cardAnswer"]');
 
 // ---- eventlistener Show Answer ----
 
