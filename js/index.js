@@ -17,6 +17,7 @@ const quizz = [
 const myMain = document.querySelector("main");
 const cardFocus = 1;
 myMain.append(newQuestionCard(quizz[1].frage));
+
 myMain.append(newAnswerCard(quizz[1].antwort));
 
 function cardContainer() {
@@ -100,12 +101,22 @@ function addQuestionCardFooter(countTags) {
   }
   footerSection.append(myUl);
   const myBookmarkButton = document.createElement("button");
-  myBookmarkButton.textContent = "Test";
-  //button.createElement("svg");
-  /*myBookmarkButton.setAttribute(
-  "path",
-    (d =
-      "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z");*/
+  myBookmarkButton.type = "button";
+  myBookmarkButton.classList.add("xButton__bookmark__card");
+  myBookmarkButton.addEventListener("click", (event) => {
+    //--- Hier den Bookmark-Status ändern ----
+    console.log("Click Button Bookmark in Question");
+  });
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.classList.add("my__svg");
+  const myPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  myPath.setAttribute(
+    "d",
+    "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z"
+  );
+  svg.appendChild(myPath);
+  myBookmarkButton.append(svg);
   footerSection.append(myBookmarkButton);
   return footerSection;
 }
@@ -136,16 +147,16 @@ function addQuestionCardFooter(countTags) {
 });*/
 
 // ---- Card Bookmark toogle Start ------
-const bookmarkButtonCard = document.querySelector(
-  '[data-js="bookmarkButtonCard"]'
-);
-const bookmarkButtonSvg = document.querySelector(
-  '[data-js="bookmarkButtonSvg"]'
-);
+// const bookmarkButtonCard = document.querySelector(
+//   '[data-js="bookmarkButtonCard"]'
+// );
+// const bookmarkButtonSvg = document.querySelector(
+//   '[data-js="bookmarkButtonSvg"]'
+// );
 
-bookmarkButtonCard.addEventListener("click", () => {
-  bookmarkButtonSvg.classList.toggle("bookmark__button__svg--marked");
-});
+// bookmarkButtonCard.addEventListener("click", () => {
+//   bookmarkButtonSvg.classList.toggle("bookmark__button__svg--marked");
+// });
 // ---- Card Bookmark toogle End ------
 
 // eventListener Hide cardAnswerText

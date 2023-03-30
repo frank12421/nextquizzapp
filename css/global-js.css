@@ -77,3 +77,23 @@
 .answercard__button__hide:hover {
   background-color: darkgoldenrod;
 }
+
+/*was,wofür,wo*/
+.xButton__bookmark__card {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+}
+
+.my__svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke-width: 1px;
+  stroke: #323232;
+}
+
+.my__svg:hover {
+  fill: darkgoldenrod;
+}
