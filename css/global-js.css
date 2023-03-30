@@ -70,7 +70,7 @@
   padding: 10px;
   background-color: var(--globalBackgroundColor);
   font-size: 1.2rem;
-  border: none;
+  border: 5px double var(--globalCardBackgroundColor);
   border-radius: var(--globalRadius);
 }
 
