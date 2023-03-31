@@ -3,11 +3,34 @@ import { cardContainer } from "./utils/card.js";
 import { newQuestionCard } from "./utils/card.js";
 import { newAnswerCard } from "./utils/card.js";
 
-const myMain = document.querySelector("main");
-const cardFocus = 1;
+switch (document.title) {
+  case "Franks Next Quiz App":
+    renderLandingpage();
+    console.log("Landingpage");
+    break;
+  case "Franks Next Quiz App - Your Bookmarks":
+    console.log("Bookmark");
+    break;
+  case "Franks Next Quiz App - New Form":
+    console.log("New Form");
+    break;
+  case "Franks Next Quiz App - Profile":
+    console.log("Profile");
+    break;
+  default:
+    renderLandingpage();
+    console.log("default");
+}
 
-myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
-myMain.append(newAnswerCard(quizz[cardFocus].antwort));
+console.log(document.title);
+
+function renderLandingpage() {
+  const myMain = document.querySelector("main");
+  const cardFocus = 1;
+
+  myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
+  myMain.append(newAnswerCard(quizz[cardFocus].antwort));
+}
 
 // ---- Card Bookmark toogle Start ------
 // const bookmarkButtonCard = document.querySelector(
