@@ -6,28 +6,32 @@ import { newAnswerCard } from "./utils/card.js";
 switch (document.title) {
   case "Franks Next Quiz App":
     renderLandingpage();
-    console.log("Landingpage");
     break;
   case "Franks Next Quiz App - Your Bookmarks":
-    console.log("Bookmark");
+    renderBookmarkpage();
     break;
   case "Franks Next Quiz App - New Form":
-    console.log("New Form");
     break;
   case "Franks Next Quiz App - Profile":
-    console.log("Profile");
     break;
   default:
     renderLandingpage();
-    console.log("default");
 }
 
-console.log(document.title);
+//console.log(document.title);
+
+function renderBookmarkpage() {
+  console.log("Function Render Bookmar");
+  const myMain = document.querySelector("main");
+  const cardFocus = 0;
+  // *** Aufbau muss noch umgesetzt werden ***
+  myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
+  myMain.append(newAnswerCard(quizz[cardFocus].antwort));
+}
 
 function renderLandingpage() {
   const myMain = document.querySelector("main");
   const cardFocus = 1;
-
   myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
   myMain.append(newAnswerCard(quizz[cardFocus].antwort));
 }
