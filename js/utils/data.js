@@ -13,4 +13,11 @@ export const quizz = [
     bookmark: true,
     tag: ["max", "html", "css"],
   },
+  {
+    frage: "Was ist die antwort auf das Universum  und alles andere?",
+    antwort:
+      "42 - ist etwas sehr kurz. Das Design müsste noch an sehr kurze Antworten angepasst werden!",
+    bookmark: false,
+    tag: ["all", "html", "css"],
+  },
 ];
