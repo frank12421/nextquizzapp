@@ -3,29 +3,26 @@ import { cardContainer } from "./utils/card.js";
 
 export function addNewQuestion() {
   console.log("NewQuestPage");
-  return addForm(150);
+  return addForm("150");
 }
 
 function addForm(maxLength) {
   const form = document.createElement("form");
   const container = cardContainer();
-  form.append(addTextArea("newQuestion", "150", " Post your Question here."));
-  form.append(addTextArea("newAnswer", "150", " Post your ANSWER here."));
+  form.append(
+    addTextArea("newQuestion", maxLength, " Post your Question here.")
+  );
+  form.append(addTextArea("newAnswer", maxLength, " Post your ANSWER here."));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    //console.log(event.target);
-    //console.log(event.target.elements);
     const element = event.target.elements;
-    //console.log(element.newQuestion.value);
     const main = document.querySelector("main");
-    // --Aufruf über ein array lösen ---
-    main.append(
-      showNewQuestionSummary(
-        element.newQuestion.value,
-        element.newAnswer.value,
-        element.inputtag.value
-      )
-    );
+    const formValues = [
+      element.newQuestion.value,
+      element.newAnswer.value,
+      element.inputtag.value,
+    ];
+    main.append(showNewQuestionSummary(formValues));
   });
   form.append(addTagInput());
   form.append(addSubmitButton());
@@ -33,16 +30,13 @@ function addForm(maxLength) {
   return container;
 }
 
-function showNewQuestionSummary(question, answer, tag) {
-  console.log("showNewQuest-Function");
+function showNewQuestionSummary(formValues) {
   const container = cardContainer();
-  const lQuestion = document.createElement("p");
-  lQuestion.textContent = question;
-  const lAnswer = document.createElement("p");
-  lAnswer.textContent = answer;
-  const lTag = document.createElement("p");
-  lTag.textContent = tag;
-  container.append(lQuestion, lAnswer, lTag);
+  formValues.forEach((element) => {
+    const content = document.createElement("p");
+    content.textContent = element;
+    container.append(content);
+  });
   return container;
 }
 
