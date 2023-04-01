@@ -1,16 +1,17 @@
 import { quizz } from "./utils/data.js";
-import { cardContainer } from "./utils/card.js";
 import { newQuestionCard } from "./utils/card.js";
 import { newAnswerCard } from "./utils/card.js";
+import { addNewQuestion } from "./new-question.js";
 
 switch (document.title) {
   case "Franks Next Quiz App":
-    renderLandingpage();
+    renderLandingPage();
     break;
   case "Franks Next Quiz App - Your Bookmarks":
-    renderBookmarkpage();
+    renderBookmarkPage();
     break;
   case "Franks Next Quiz App - New Form":
+    renderAddQuestionPage();
     break;
   case "Franks Next Quiz App - Profile":
     break;
@@ -20,7 +21,15 @@ switch (document.title) {
 
 //console.log(document.title);
 
-function renderBookmarkpage() {
+function renderAddQuestionPage() {
+  console.log("AddQuestion");
+  const myMain = document.querySelector("main");
+  const cardFocus = 0;
+  // *** Aufbau muss noch umgesetzt werden ***
+  myMain.append(addNewQuestion());
+}
+
+function renderBookmarkPage() {
   console.log("Function Render Bookmar");
   const myMain = document.querySelector("main");
   const cardFocus = 0;
@@ -29,7 +38,7 @@ function renderBookmarkpage() {
   myMain.append(newAnswerCard(quizz[cardFocus].antwort));
 }
 
-function renderLandingpage() {
+function renderLandingPage() {
   const myMain = document.querySelector("main");
   const cardFocus = 1;
   myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
@@ -63,50 +72,3 @@ function renderLandingpage() {
 /*mal klären: 
 const mytitel = document.head.title.textContent;
 console.log(mytitel);*/
-
-/*  ----- New Form -----
-const newForm = document.querySelector('[data-js="newForm"]');
-const newMain = document.querySelector("main");
-//console.log(newForm);
-
-newForm.newQuestion.value = "";
-newForm.newAnswer.value = "";
-newForm.inputTag.value = "";
-
-const charQuestion = document.querySelector('[data-js="charQuestion"]');
-const charAnswer = document.querySelector('[data-js="charAnswer"]');
-
-newForm.newQuestion.addEventListener("input", (event) => {
-  const charcounter =
-    150 - Number(event.target.value.length) + "  character left";
-  charQuestion.textContent = charcounter;
-});
-
-newForm.newAnswer.addEventListener("input", (event) => {
-  const charcounter =
-    150 - Number(event.target.value.length) + "  character left";
-  charAnswer.textContent = charcounter;
-});
-
-newForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const newCard = document.createElement("article");
-  newCard.classList.add("card");
-  const newQuestion = document.createElement("p");
-  newQuestion.classList.add("card__question");
-  newQuestion.textContent = newForm.newQuestion.value;
-
-  const newAnswer = document.createElement("p");
-  newAnswer.classList.add("card__answer");
-  newAnswer.textContent = newForm.newAnswer.value;
-
-  const newTag = document.createElement("p");
-  newTag.textContent = newForm.inputTag.value;
-
-  newCard.append(newQuestion);
-  newCard.append(newAnswer);
-  newCard.append(newTag);
-  newMain.append(newCard);
-});
-
-//  ----- Ende New Form ----- */
