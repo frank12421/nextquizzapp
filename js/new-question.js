@@ -3,58 +3,72 @@ import { cardContainer } from "./utils/card.js";
 
 export function addNewQuestion() {
   console.log("NewQuestPage");
-  const section = cardContainer();
-  section.append(addForm(150));
-  return section;
+  return addForm(150);
 }
 
 function addForm(maxLength) {
   const form = document.createElement("form");
-  form.append(addTextArea("newQestion", "150", " Post your Question here."));
+  const container = cardContainer();
+  form.append(addTextArea("newQuestion", "150", " Post your Question here."));
   form.append(addTextArea("newAnswer", "150", " Post your ANSWER here."));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(event.target);
+    //console.log(event.target);
+    //console.log(event.target.elements);
+    const element = event.target.elements;
+    //console.log(element.newQuestion.value);
+    const main = document.querySelector("main");
+    // --Aufruf über ein array lösen ---
+    main.append(
+      showNewQuestionSummary(
+        element.newQuestion.value,
+        element.newAnswer.value,
+        element.inputtag.value
+      )
+    );
   });
+  form.append(addTagInput());
   form.append(addSubmitButton());
-  return form;
+  container.append(form);
+  return container;
+}
+
+function showNewQuestionSummary(question, answer, tag) {
+  console.log("showNewQuest-Function");
+  const container = cardContainer();
+  const lQuestion = document.createElement("p");
+  lQuestion.textContent = question;
+  const lAnswer = document.createElement("p");
+  lAnswer.textContent = answer;
+  const lTag = document.createElement("p");
+  lTag.textContent = tag;
+  container.append(lQuestion, lAnswer, lTag);
+  return container;
+}
+
+function addTagInput() {
+  const container = cardContainer();
+  const label = document.createElement("label");
+  label.setAttribute("for", "inputtag");
+  label.textContent = "Post your tag here";
+  label.name = "inputtag";
+  const input = document.createElement("input");
+  input.name = "inputtag";
+  container.append(label, input);
+  return container;
 }
 
 function addSubmitButton() {
-  const htmlstructure = cardContainer();
+  const container = cardContainer();
   const button = document.createElement("button");
   button.type = "submit";
-  button.textContent = "Drück mich";
-  button.addEventListener("submit", (event) => {
-    //event.preventDefault();
-    console.log("click submit-form");
-
-    //const newCard = document.createElement("article");
-
-    // newCard.classList.add("card");
-    // const newQuestion = document.createElement("p");
-    // newQuestion.classList.add("card__question");
-    // newQuestion.textContent = newForm.newQuestion.value;
-
-    // const newAnswer = document.createElement("p");
-    // newAnswer.classList.add("card__answer");
-    // newAnswer.textContent = newForm.newAnswer.value;
-
-    // const newTag = document.createElement("p");
-    // newTag.textContent = newForm.inputTag.value;
-
-    //     newCard.append(newQuestion);
-    //     newCard.append(newAnswer);
-    //     newCard.append(newTag);
-    //     newMain.append(newCard);
-  });
-
-  htmlstructure.append(button);
-  return htmlstructure;
+  button.textContent = "Submit";
+  container.append(button);
+  return container;
 }
 
 function addTextArea(name, maxlength, labelName) {
-  const section = cardContainer();
+  const container = document.createElement("div");
   const label = document.createElement("label");
   const charCounter = document.createElement("p");
   charCounter.textContent = maxlength + " character left";
@@ -74,53 +88,6 @@ function addTextArea(name, maxlength, labelName) {
       "  character left";
     charCounter.textContent = charcounter;
   });
-  section.append(label, textArea, charCounter);
-  return section;
+  container.append(label, textArea, charCounter);
+  return container;
 }
-
-/*  ----- New Form -----
-const newForm = document.querySelector('[data-js="newForm"]');
-const newMain = document.querySelector("main");
-//console.log(newForm);
-
-newForm.newQuestion.value = "";
-newForm.newAnswer.value = "";
-newForm.inputTag.value = "";
-
-const charQuestion = document.querySelector('[data-js="charQuestion"]');
-const charAnswer = document.querySelector('[data-js="charAnswer"]');
-
-newForm.newQuestion.addEventListener("input", (event) => {
-  const charcounter =
-    150 - Number(event.target.value.length) + "  character left";
-  charQuestion.textContent = charcounter;
-});
-
-newForm.newAnswer.addEventListener("input", (event) => {
-  const charcounter =
-    150 - Number(event.target.value.length) + "  character left";
-  charAnswer.textContent = charcounter;
-});
-
-newForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const newCard = document.createElement("article");
-  newCard.classList.add("card");
-  const newQuestion = document.createElement("p");
-  newQuestion.classList.add("card__question");
-  newQuestion.textContent = newForm.newQuestion.value;
-
-  const newAnswer = document.createElement("p");
-  newAnswer.classList.add("card__answer");
-  newAnswer.textContent = newForm.newAnswer.value;
-
-  const newTag = document.createElement("p");
-  newTag.textContent = newForm.inputTag.value;
-
-  newCard.append(newQuestion);
-  newCard.append(newAnswer);
-  newCard.append(newTag);
-  newMain.append(newCard);
-});
-
-//  ----- Ende New Form ----- */
