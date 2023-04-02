@@ -38,7 +38,10 @@ function addBookmarkButton(cardFocus) {
     changeBookmarkStatus(cardFocus);
   });
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("data-js", "button_bookmark_question");
+  svg.setAttribute(
+    "data-js",
+    "button_bookmark_question" + cardFocus.toString()
+  );
   svg.setAttribute("viewBox", "0 0 24 24");
   svg.classList.add("my__svg");
   const myPath = document.createElementNS("http://www.w3.org/2000/svg", "path");

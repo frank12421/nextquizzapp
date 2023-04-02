@@ -2,6 +2,7 @@ import { quizz } from "./utils/data.js";
 import { newQuestionCard } from "./utils/card.js";
 import { newAnswerCard } from "./utils/card.js";
 import { addNewQuestion } from "./new-question.js";
+//import { showAllBookmarkedQuestion } from "./utils/bookmark.js";
 
 const cardFocus = 0;
 
@@ -10,7 +11,7 @@ switch (document.title) {
     renderLandingPage(cardFocus);
     break;
   case "Franks Next Quiz App - Your Bookmarks":
-    renderBookmarkPage(cardFocus);
+    renderBookmarkPage();
     break;
   case "Franks Next Quiz App - New Form":
     renderAddQuestionPage(cardFocus);
@@ -29,9 +30,18 @@ function renderLandingPage(cardFocus) {
 
 function renderBookmarkPage() {
   console.log("Function Render Bookmar");
+  console.log(quizz);
   const myMain = document.querySelector("main");
-  myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
-  myMain.append(newAnswerCard(quizz[cardFocus].antwort));
+  for (let counter = 0; counter < quizz.length; counter++) {
+    console.log(counter);
+    if (quizz[counter].bookmark === true) {
+      console.log(quizz[counter]);
+      myMain.append(newQuestionCard(counter, 3));
+      myMain.append(newAnswerCard(counter));
+    }
+  }
+  //myMain.append(newQuestionCard(quizz[cardFocus].frage, 3));
+  //myMain.append(newAnswerCard(quizz[cardFocus].antwort));
 }
 
 function renderAddQuestionPage(cardFocus) {

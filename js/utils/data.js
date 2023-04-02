@@ -18,7 +18,7 @@ export const quizz = [
     frage: "2 - Was ist die antwort auf das Universum  und alles andere?",
     antwort:
       "2- 42 - ist etwas sehr kurz. Das Design müsste noch an sehr kurze Antworten angepasst werden!",
-    bookmark: false,
+    bookmark: true,
     tag: ["all", "html", "css"],
   },
 ];
