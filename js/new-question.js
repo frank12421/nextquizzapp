@@ -1,5 +1,7 @@
 import { newQuestionCard } from "./utils/card.js";
+import { newAnswerCard } from "./utils/card.js";
 import { cardContainer } from "./utils/card.js";
+import { quizz } from "./utils/data.js";
 
 export function addNewQuestion() {
   console.log("NewQuestPage");
@@ -8,35 +10,31 @@ export function addNewQuestion() {
 
 function addForm(maxLength) {
   const form = document.createElement("form");
+  form.classList.add("new__form");
   const container = cardContainer();
   form.append(
     addTextArea("newQuestion", maxLength, " Post your Question here.")
   );
+
   form.append(addTextArea("newAnswer", maxLength, " Post your ANSWER here."));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const element = event.target.elements;
     const main = document.querySelector("main");
-    const formValues = [
-      element.newQuestion.value,
-      element.newAnswer.value,
-      element.inputtag.value,
-    ];
-    main.append(showNewQuestionSummary(formValues));
+    console.log(quizz);
+    const formValues = {
+      frage: element.newQuestion.value,
+      antwort: element.newAnswer.value,
+      bookmark: false,
+      tag: [element.inputtag.value],
+    };
+    quizz.unshift(formValues);
+    main.append(newQuestionCard(quizz[0].frage, "1"));
+    main.append(newAnswerCard(quizz[0].antwort, 1));
   });
   form.append(addTagInput());
   form.append(addSubmitButton());
   container.append(form);
-  return container;
-}
-
-function showNewQuestionSummary(formValues) {
-  const container = cardContainer();
-  formValues.forEach((element) => {
-    const content = document.createElement("p");
-    content.textContent = element;
-    container.append(content);
-  });
   return container;
 }
 
@@ -63,6 +61,7 @@ function addSubmitButton() {
 
 function addTextArea(name, maxlength, labelName) {
   const container = document.createElement("div");
+  container.classList.add("div__textarea");
   const label = document.createElement("label");
   const charCounter = document.createElement("p");
   charCounter.textContent = maxlength + " character left";
