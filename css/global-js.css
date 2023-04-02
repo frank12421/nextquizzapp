@@ -94,6 +94,7 @@
   stroke: #323232;
 }
 
+.svg__fill__full,
 .my__svg:hover {
   fill: darkgoldenrod;
 }

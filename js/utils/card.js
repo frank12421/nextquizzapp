@@ -1,38 +1,44 @@
+import { quizz } from "./data.js";
+import { changeBookmarkStatus } from "./bookmark.js";
+
 export function cardContainer() {
   const cardSection = document.createElement("sektion");
   cardSection.classList.add("card__box");
   return cardSection;
 }
 
-export function newQuestionCard(text, countTags) {
+export function newQuestionCard(cardFocus, countTags) {
   const cardSection = cardContainer();
   const cardText = document.createElement("article");
   cardText.classList.add("card__text");
-  cardText.textContent = text;
+  cardText.textContent = quizz[cardFocus].frage;
   //const countTags = 3;
   cardSection.append(cardText);
-  cardSection.append(addQuestionCardFooter(countTags));
+  cardSection.append(addQuestionCardFooter(cardFocus, countTags));
   return cardSection;
 }
 
-function addQuestionCardFooter(countTags) {
+function addQuestionCardFooter(cardFocus, countTags) {
   // baut den Footer in eine Fragekarte auf.
   const footerSection = document.createElement("section");
   footerSection.classList.add("question__card__footer");
   footerSection.append(addUlTags(countTags));
-  footerSection.append(addBookmarkButton());
+  footerSection.append(addBookmarkButton(cardFocus));
   return footerSection;
 }
 
-function addBookmarkButton() {
+function addBookmarkButton(cardFocus) {
   const myBookmarkButton = document.createElement("button");
   myBookmarkButton.type = "button";
   myBookmarkButton.classList.add("xButton__bookmark__card");
+
   myBookmarkButton.addEventListener("click", (event) => {
     //--- Hier den Bookmark-Status ändern ----
     console.log("Click Button Bookmark in Question");
+    changeBookmarkStatus(cardFocus);
   });
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("data-js", "button_bookmark_question");
   svg.setAttribute("viewBox", "0 0 24 24");
   svg.classList.add("my__svg");
   const myPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -57,12 +63,12 @@ function addUlTags(countTags) {
   return myUl;
 }
 
-export function newAnswerCard(text) {
+export function newAnswerCard(cardFocus) {
   // erstellt eine neue Antwort-Karte
   // bekommt den Text zugewiesen. Erhält einen Button zu anzeigen/verstecken
   const cardSection = cardContainer();
   cardSection.setAttribute("data-js", "answerCardSection");
-  cardSection.append(answerContent(text));
+  cardSection.append(answerContent(quizz[cardFocus].antwort));
   cardSection.append(newAnswerButton());
   return cardSection;
 }
