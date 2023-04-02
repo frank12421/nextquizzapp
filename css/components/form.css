@@ -1,5 +1,6 @@
 .new__form {
-  width: var(--globalContainerwidth);
+  padding-left: 20px;
+  margin: auto;
 }
 
 .new__Question,
@@ -28,9 +29,12 @@ label {
 }
 
 textarea {
+  width: 100%;
+  height: auto;
   border: none;
   background-color: transparent;
-  /* margin-top: 10px; */
+  resize: none;
+  margin: auto;
 }
 
 textarea:valid {
@@ -52,4 +56,11 @@ textarea:invalid :active {
   padding-top: 2px;
   font-size: 0.8rem;
   align-self: end;
+}
+
+.div__textarea {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
 }

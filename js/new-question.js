@@ -10,10 +10,12 @@ export function addNewQuestion() {
 
 function addForm(maxLength) {
   const form = document.createElement("form");
+  form.classList.add("new__form");
   const container = cardContainer();
   form.append(
     addTextArea("newQuestion", maxLength, " Post your Question here.")
   );
+
   form.append(addTextArea("newAnswer", maxLength, " Post your ANSWER here."));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -59,6 +61,7 @@ function addSubmitButton() {
 
 function addTextArea(name, maxlength, labelName) {
   const container = document.createElement("div");
+  container.classList.add("div__textarea");
   const label = document.createElement("label");
   const charCounter = document.createElement("p");
   charCounter.textContent = maxlength + " character left";
