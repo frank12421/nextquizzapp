@@ -23,7 +23,7 @@ function addQuestionCardFooter(cardFocus, countTags) {
   // baut den Footer in eine Fragekarte auf.
   const footerSection = document.createElement("section");
   footerSection.classList.add("question__card__footer");
-  footerSection.append(addUlTags(countTags));
+  footerSection.append(addListTags(cardFocus));
   footerSection.append(addBookmarkButton(cardFocus));
   return footerSection;
 }
@@ -59,13 +59,13 @@ function addBookmarkButton(cardFocus) {
   return myBookmarkButton;
 }
 
-function addUlTags(countTags) {
+function addListTags(cardFocus) {
   const myUl = document.createElement("ul");
-  for (let x = 1; x <= countTags; x++) {
+  for (let x = 0; x < quizz[cardFocus].tag.length; x++) {
     const myLi = document.createElement("li");
     myLi.classList.add("question__card__footer__tag");
     // - Tags müssen noch zu Button werden
-    myLi.textContent = `Tag-${x}`;
+    myLi.textContent = `#-${quizz[cardFocus].tag[x]}`;
     myUl.append(myLi);
   }
   return myUl;

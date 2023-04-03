@@ -12,14 +12,14 @@ export const quizz = [
     antwort:
       "1 - Und hier folgt die Antwort - ebenfalls nicht zu kurz, nicht zu lang - damit sie gut zu merken ist.",
     bookmark: true,
-    tag: ["max", "html", "css"],
+    tag: ["max"],
   },
   {
     frage: "2 - Was ist die antwort auf das Universum  und alles andere?",
     antwort:
       "2- 42 - ist etwas sehr kurz. Das Design müsste noch an sehr kurze Antworten angepasst werden!",
     bookmark: true,
-    tag: ["all", "html", "css"],
+    tag: ["all", "zwei"],
   },
   {
     frage:

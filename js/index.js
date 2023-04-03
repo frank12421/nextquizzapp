@@ -4,7 +4,7 @@ import { newAnswerCard } from "./utils/card.js";
 import { addNewQuestion } from "./new-question.js";
 //import { showAllBookmarkedQuestion } from "./utils/bookmark.js";
 
-const cardFocus = 0;
+const cardFocus = 1;
 
 switch (document.title) {
   case "Franks Next Quiz App":
@@ -29,13 +29,13 @@ function renderLandingPage(cardFocus) {
 }
 
 function renderBookmarkPage() {
-  console.log("Function Render Bookmar");
-  console.log(quizz);
+  // console.log("Function Render Bookmar");
+  // console.log(quizz);
   const myMain = document.querySelector("main");
   for (let counter = 0; counter < quizz.length; counter++) {
-    console.log(counter);
+    // console.log(counter);
     if (quizz[counter].bookmark === true) {
-      console.log(quizz[counter]);
+      // console.log(quizz[counter]);
       myMain.append(newQuestionCard(counter, 3));
       myMain.append(newAnswerCard(counter));
     }
