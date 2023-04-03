@@ -32,17 +32,19 @@
   gap: 10px;
 }
 
-/*.new__card__footer li {
-}*/
-
 .question__card__footer__tag {
   text-decoration: none;
+  height: 80%;
   list-style: none;
   font-size: 0.8rem;
   border: 1px solid gray;
   border-radius: 5px;
   background-color: lightgray;
   padding: 5px;
+}
+
+.question__card__footer__tag:hover {
+  background-color: darkgoldenrod;
 }
 
 .button__show__answer {
