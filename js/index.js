@@ -4,7 +4,7 @@ import { newAnswerCard } from "./utils/card.js";
 import { addNewQuestion } from "./new-question.js";
 //import { showAllBookmarkedQuestion } from "./utils/bookmark.js";
 
-const cardFocus = 1;
+const cardFocus = 2;
 
 switch (document.title) {
   case "Franks Next Quiz App":
