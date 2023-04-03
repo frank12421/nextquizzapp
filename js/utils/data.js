@@ -21,4 +21,12 @@ export const quizz = [
     bookmark: true,
     tag: ["all", "html", "css"],
   },
+  {
+    frage:
+      "4 - Diese Frage ist eigentlich keine wirkliche Frage, sondern lediglich ein Text der die vollen 150 Zeichen ausnutzt und dann ohne Frage einfach unvollend",
+    antwort:
+      "4 - Und hier folgt die Antwort - ebenfalls nicht zu kurz, nicht zu lang - damit sie gut zu merken ist.",
+    bookmark: false,
+    tag: ["max", "html", "css"],
+  },
 ];

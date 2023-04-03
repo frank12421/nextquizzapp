@@ -11,6 +11,7 @@ export function newQuestionCard(cardFocus, countTags) {
   const cardSection = cardContainer();
   const cardText = document.createElement("article");
   cardText.classList.add("card__text");
+  console.log(`NewQuestionCard-Focus= ${cardFocus}`);
   cardText.textContent = quizz[cardFocus].frage;
   //const countTags = 3;
   cardSection.append(cardText);
@@ -35,6 +36,7 @@ function addBookmarkButton(cardFocus) {
   myBookmarkButton.addEventListener("click", (event) => {
     //--- Hier den Bookmark-Status ändern ----
     console.log("Click Button Bookmark in Question");
+    console.log(cardFocus);
     changeBookmarkStatus(cardFocus);
   });
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -50,6 +52,9 @@ function addBookmarkButton(cardFocus) {
     "M17 3C18.1046 3 19 3.89543 19 5L19 19.0536C19 20.5893 17.341 21.552 16.0077 20.7901L12.9923 19.067C12.3774 18.7157 11.6226 18.7157 11.0077 19.067L7.99228 20.7901C6.65897 21.552 5 20.5893 5 19.0536L5 5C5 3.89543 5.89543 3 7 3L17 3Z"
   );
   svg.appendChild(myPath);
+  if (quizz[cardFocus].bookmark === true) {
+    svg.classList.add("svg__fill__full");
+  }
   myBookmarkButton.append(svg);
   return myBookmarkButton;
 }

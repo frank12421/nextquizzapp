@@ -15,7 +15,7 @@ import { newQuestionCard } from "./card.js";
 // }
 
 export function changeBookmarkStatus(cardFocus) {
-  // console.log(quizz[cardFocus]);
+  console.log(quizz[cardFocus]);
   const myvar = document.querySelector(
     `[data-js="button_bookmark_question${cardFocus.toString()}"]`
   );
