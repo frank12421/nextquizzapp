@@ -15,7 +15,6 @@ function addForm(maxLength) {
   form.append(
     addTextArea("newQuestion", maxLength, " Post your Question here.")
   );
-
   form.append(addTextArea("newAnswer", maxLength, " Post your ANSWER here."));
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -29,8 +28,9 @@ function addForm(maxLength) {
       tag: [element.inputtag.value],
     };
     quizz.unshift(formValues);
-    main.append(newQuestionCard(quizz[0].frage, "1"));
-    main.append(newAnswerCard(quizz[0].antwort, 1));
+    console.log(quizz);
+    main.append(newQuestionCard(0, "1"));
+    main.append(newAnswerCard(0, 1));
   });
   form.append(addTagInput());
   form.append(addSubmitButton());
